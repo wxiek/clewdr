@@ -1,34 +1,40 @@
 name: Build and Push Docker Image
 
 on:
-  push: {}
-  pull_request: {}
-  workflow_dispatch:    # 允许手动触发
+  push:
+    branches: [ main ]  # 限制分支触发
+    tags: [ 'v*' ]      # v开头的标签
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
     inputs:
       reason:
         description: '手动触发原因'
         required: true
         default: '测试构建'
+
 env:
   REGISTRY: ghcr.io
 
 jobs:
   prepare:
     runs-on: ubuntu-latest
-    if: contains(github.event.head_commit.message, '[CI]') || contains(github.ref, 'refs/tags/v')
+    # 移除if条件，每次都会执行
     outputs:
       tags: ${{ steps.meta.outputs.tags }}
       labels: ${{ steps.meta.outputs.labels }}
       image_name: ${{ steps.downcase.outputs.IMAGE_NAME }}
+    
     steps:
       - name: downcase IMAGE_NAME
         id: downcase
         run: |
           echo "IMAGE_NAME=${GITHUB_REPOSITORY@L}" >>${GITHUB_OUTPUT}
+          
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Extract metadata (tags, labels) for Docker
+      - name: Extract metadata
         id: meta
         uses: docker/metadata-action@v5
         with:
@@ -36,10 +42,11 @@ jobs:
           tags: |
             type=ref,event=branch
             type=ref,event=pr
-            type=semver,pattern={{version}},event=tag
-            type=semver,pattern={{major}}.{{minor}},event=tag
-            type=sha,format=short
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=sha
             type=raw,value=latest,enable=${{ startsWith(github.ref, 'refs/tags/v') }}
+
 
   build:
     needs: prepare
