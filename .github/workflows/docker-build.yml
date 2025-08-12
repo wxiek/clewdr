@@ -1,13 +1,11 @@
 name: Build and Push Docker Image
 
 on:
-  push:
-    tags:
-      - "v[0-9]+.[0-9]+.[0-9]+"
-    branches: ["master"]
-  pull_request:
-    branches: ["master"]
-
+  push:    # 任何分支的 push 都会触发
+    branches-ignore: []  # 不忽略任何分支
+    tags-ignore: []      # 不忽略任何 tag
+  pull_request:         # 任何 PR 都会触发
+    branches-ignore: []  # 不忽略任何分支on
 env:
   REGISTRY: ghcr.io
 
