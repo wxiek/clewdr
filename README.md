@@ -201,6 +201,8 @@ Gemini OpenAI: http://127.0.0.1:8484/gemini/chat/completions      # OpenAI compa
 Vertex AI:     http://127.0.0.1:8484/v1/vertex/v1beta/            # Vertex AI
 ```
 
+##唯一改动就是改了Gemini接口加了防截断
+
 #### ⚙️ **Application Configuration Examples**
 
 <details>
