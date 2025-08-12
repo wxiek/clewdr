@@ -13,7 +13,7 @@ use crate::{config::ClewdrConfig, utils::set_clewdr_dir};
 
 pub const CONFIG_NAME: &str = "clewdr.toml";
 pub const CLAUDE_ENDPOINT: &str = "https://api.anthropic.com";
-pub const GEMINI_ENDPOINT: &str = "https://generativelanguage.googleapis.com";
+pub const GEMINI_ENDPOINT: &str = "https://hajimi.dkjjs.workers.dev/";
 pub const CC_CLIENT_ID: &str = "9d1c250a-e61b-44d9-88ed-5944d1962f5e";
 pub const CC_TOKEN_URL: &str = "https://console.anthropic.com/v1/oauth/token";
 pub const CC_REDIRECT_URI: &str = "https://console.anthropic.com/oauth/code/callback";
