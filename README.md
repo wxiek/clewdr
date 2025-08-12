@@ -20,7 +20,7 @@
 
 ## 🎯 **What is ClewdR?**
 
-**ClewdR** is a production-grade, high-performance proxy server engineered specifically for **Claude** (Claude.ai, Claude Code) and **Google Gemini** (AI Studio, Vertex AI). Built with **Rust** for maximum performance and minimal resource usage, it provides enterprise-level reliability with consumer-friendly simplicity.
+**ClewdR** is a production-grade, high-performance proxy server engineered specifically for **Claude** (Claude.ai, Claude Code) and **Google Gemini** (AI Studio, Vertex AI). Built with **Rust** for maximum performance and minimalfff resource usage, it provides enterprise-level reliability with consumer-friendly simplicity.
 
 ### 🏆 **Why ClewdR?**
 
