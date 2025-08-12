@@ -1,11 +1,8 @@
 name: Build and Push Docker Image
 
 on:
-  push:    # 任何分支的 push 都会触发
-    branches-ignore: []  # 不忽略任何分支
-    tags-ignore: []      # 不忽略任何 tag
-  pull_request:         # 任何 PR 都会触发
-    branches-ignore: []  # 不忽略任何分支on
+  push: {}    # 任何 push 都会触发（包括分支和 tag）
+  pull_request: {}  # 任何 PR 都会触发
 env:
   REGISTRY: ghcr.io
 
