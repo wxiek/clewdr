@@ -1,3 +1,5 @@
-# v0.11.8
+# v0.11.10
 
-- Fix Docker build workflow to properly handle version tags
+## Bug Fixes
+
+- Fix `thinking` field default fallback handling for Claude

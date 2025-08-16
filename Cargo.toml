@@ -1,12 +1,19 @@
 [package]
 name = "clewdr"
-version = "0.11.8"
+version = "0.11.10"
 edition = "2024"
 authors = ["Xerxes-2"]
 license = "AGPL-3.0"
 
 [lib]
 path = "src/lib.rs"
+
+[profile.release]
+strip = true
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
 
 [dependencies]
 tokio = { version = "1", features = ["macros", "rt-multi-thread", "signal"] }
